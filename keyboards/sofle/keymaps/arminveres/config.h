@@ -14,3 +14,5 @@ for more options.
 /// In combination with fast typing and home row mods, PERMISSIVE_HOLD enables to register keys instead of layer changes
 /// For more information see: https://docs.qmk.fm/#/tap_hold?id=tap-or-hold-decision-modes
 #define PERMISSIVE_HOLD
+
+#define USE_HOMEROW_MODS
