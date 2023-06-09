@@ -44,17 +44,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├──────┼────────┼────────┼────────┼────────┼─────┤                             ├─────┼────────┼────────┼────────┼───────────┼──────┤
 //    │ tab  │   q    │   w    │   e    │   r    │  t  │                             │  y  │   u    │   i    │   o    │     p     │ '\'  │
 //    ├──────┼────────┼────────┼────────┼────────┼─────┤                             ├─────┼────────┼────────┼────────┼───────────┼──────┤
-//    │ lctl │ HOME_A │ HOME_S │ HOME_D │ HOME_F │  g  │                             │  h  │ HOME_J │ HOME_K │ HOME_L │ HOME_SCLN │ "'"  │
+//    │ caps │ HOME_A │ HOME_S │ HOME_D │ HOME_F │  g  │                             │  h  │ HOME_J │ HOME_K │ HOME_L │ HOME_SCLN │ "'"  │
 //    ├──────┼────────┼────────┼────────┼────────┼─────┼────────────┐   ┌────────────┼─────┼────────┼────────┼────────┼───────────┼──────┤
-//    │ lsft │   z    │   x    │   c    │   v    │  b  │    mute    │   │    paus    │  n  │   m    │   ,    │   .    │     /     │ rsft │
+//    │ lsft │   z    │   x    │   c    │   v    │  b  │    mute    │   │            │  n  │   m    │   ,    │   .    │     /     │ rsft │
 //    └──────┴────────┼────────┼────────┼────────┼─────┼────────────┤   ├────────────┼─────┼────────┼────────┼────────┼───────────┴──────┘
 //                    │  ralt  │   [    │  lgui  │ spc │ MO(_LOWER) │   │ MO(_LOWER) │ ent │  lgui  │   ]    │  ralt  │
 //                    └────────┴────────┴────────┴─────┴────────────┘   └────────────┴─────┴────────┴────────┴────────┘
 [_QWERTY] = LAYOUT(
   KC_ESC  , KC_1   , KC_2    , KC_3    , KC_4    , KC_5   ,                               KC_6   , KC_7    , KC_8    , KC_9    , KC_0      , KC_BSPC,
   KC_TAB  , KC_Q   , KC_W    , KC_E    , KC_R    , KC_T   ,                               KC_Y   , KC_U    , KC_I    , KC_O    , KC_P      , KC_BSLS,
-  KC_LCTL , HOME_A , HOME_S  , HOME_D  , HOME_F  , KC_G   ,                               KC_H   , HOME_J  , HOME_K  , HOME_L  , HOME_SCLN , KC_QUOT,
-  KC_LSFT , KC_Z   , KC_X    , KC_C    , KC_V    , KC_B   , KC_MUTE    ,     KC_PAUS    , KC_N   , KC_M    , KC_COMM , KC_DOT  , KC_SLSH   , KC_RSFT,
+  KC_CAPS , HOME_A , HOME_S  , HOME_D  , HOME_F  , KC_G   ,                               KC_H   , HOME_J  , HOME_K  , HOME_L  , HOME_SCLN , KC_QUOT,
+  KC_LSFT , KC_Z   , KC_X    , KC_C    , KC_V    , KC_B   , KC_MUTE    ,     _______    , KC_N   , KC_M    , KC_COMM , KC_DOT  , KC_SLSH   , KC_RSFT,
                      KC_RALT , KC_LBRC , KC_LGUI , KC_SPC , MO(_LOWER) ,     MO(_LOWER) , KC_ENT , KC_LGUI , KC_RBRC , KC_RALT
 ),
 
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├─────────┼─────┼─────┼─────┼─────┼─────┤                       ├──────┼──────┼──────┼──────┼──────┼─────┤
 //    │    `    │     │     │     │     │  =  │                       │ pgup │ home │      │      │      │ f11 │
 //    ├─────────┼─────┼─────┼─────┼─────┼─────┤                       ├──────┼──────┼──────┼──────┼──────┼─────┤
-//    │  caps   │     │     │     │     │  -  │                       │ left │ down │  up  │ rght │      │ f12 │
+//    │         │     │     │     │     │  -  │                       │ left │ down │  up  │ rght │      │ f12 │
 //    ├─────────┼─────┼─────┼─────┼─────┼─────┼─────────┐   ┌─────────┼──────┼──────┼──────┼──────┼──────┼─────┤
 //    │ CW_TOGG │     │     │     │     │     │ QK_BOOT │   │ QK_BOOT │ pgdn │ end  │ mprv │ mnxt │ mply │     │
 //    └─────────┴─────┼─────┼─────┼─────┼─────┼─────────┤   ├─────────┼──────┼──────┼──────┼──────┼──────┴─────┘
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT(
   KC_TILD , KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_F5   ,                         KC_F6   , KC_F7   , KC_F8   , KC_F9    , KC_F10  , KC_DEL ,
   KC_GRV  , _______ , _______ , _______ , _______ , KC_EQL  ,                         KC_PGUP , KC_HOME , _______ , _______  , _______ , KC_F11 ,
-  KC_CAPS , _______ , _______ , _______ , _______ , KC_MINS ,                         KC_LEFT , KC_DOWN , KC_UP   , KC_RIGHT , _______ , KC_F12 ,
+  _______ , _______ , _______ , _______ , _______ , KC_MINS ,                         KC_LEFT , KC_DOWN , KC_UP   , KC_RIGHT , _______ , KC_F12 ,
   CW_TOGG , _______ , _______ , _______ , _______ , _______ , QK_BOOT ,     QK_BOOT , KC_PGDN , KC_END  , KC_MPRV , KC_MNXT  , KC_MPLY , _______,
                       _______ , _______ , _______ , _______ , _______ ,     _______ , _______ , _______ , _______ , _______
 ),

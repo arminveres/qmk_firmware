@@ -8,7 +8,7 @@ for more options.
 /// To do individual keys: https://docs.qmk.fm/#/tap_hold?id=tapping-term
 #ifdef TAPPING_TERM
 #    undef TAPPING_TERM
-#    define TAPPING_TERM 220
+#    define TAPPING_TERM 200
 #endif
 
 /// In combination with fast typing and home row mods, PERMISSIVE_HOLD enables to register keys instead of layer changes
