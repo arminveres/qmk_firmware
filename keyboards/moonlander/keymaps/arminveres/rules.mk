@@ -7,4 +7,8 @@ TAP_DANCE_ENABLE = yes
 SPACE_CADET_ENABLE = no
 CAPS_WORD_ENABLE = yes
 
-SRC += matrix.c tap_dance.c rgb.c
+SRC += \
+	matrix.c \
+	tap_dance.c \
+	rgb.c \
+	features/achordion.c

@@ -2,6 +2,7 @@
 #include "keycodes.h"
 #include "quantum.h"
 #include "tap_dance.h"
+#include "features/achordion.h"
 
 #define CAPS_WORD QK_CAPS_WORD_TOGGLE
 
@@ -89,38 +90,44 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______,                 _______, _______, _______
   ),
 };
-// clang-format off
+// clang-format on
 
 void keyboard_post_init_user(void) {
-  rgb_matrix_enable();
+    rgb_matrix_enable();
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-
-    case RGB_SLD:
-        if (record->event.pressed) {
-            rgblight_mode(1);
-        }
-        return false;
-    case HSV_0_255_255:
-        if (record->event.pressed) {
-            rgblight_mode(1);
-            rgblight_sethsv(0,255,255);
-        }
-        return false;
-      case HSV_86_255_128:
-        if (record->event.pressed) {
-            rgblight_mode(1);
-            rgblight_sethsv(86,255,128);
-        }
-        return false;
-      case HSV_172_255_255:
-        if (record->event.pressed) {
-            rgblight_mode(1);
-            rgblight_sethsv(172,255,255);
-        }
+    if (!process_achordion(keycode, record)) {
         return false;
     }
-  return true;
+    switch (keycode) {
+        case RGB_SLD:
+            if (record->event.pressed) {
+                rgblight_mode(1);
+            }
+            return false;
+        case HSV_0_255_255:
+            if (record->event.pressed) {
+                rgblight_mode(1);
+                rgblight_sethsv(0, 255, 255);
+            }
+            return false;
+        case HSV_86_255_128:
+            if (record->event.pressed) {
+                rgblight_mode(1);
+                rgblight_sethsv(86, 255, 128);
+            }
+            return false;
+        case HSV_172_255_255:
+            if (record->event.pressed) {
+                rgblight_mode(1);
+                rgblight_sethsv(172, 255, 255);
+            }
+            return false;
+    }
+    return true;
+}
+
+void matrix_scan_user(void) {
+    achordion_task();
 }

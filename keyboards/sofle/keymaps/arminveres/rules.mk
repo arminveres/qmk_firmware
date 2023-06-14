@@ -9,4 +9,5 @@ CONVERT_TO = rp2040_ce
 
 SRC += \
 	oled.c \
-	encoder.c
+	encoder.c \
+	features/achordion.c
