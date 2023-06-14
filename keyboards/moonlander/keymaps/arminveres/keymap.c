@@ -5,8 +5,8 @@
 #include "features/achordion.h"
 
 #define CAPS_WORD QK_CAPS_WORD_TOGGLE
-
 #define USE_HOMEROW_MODS
+
 #ifdef USE_HOMEROW_MODS
 // Left-hand home row mods
 #    define HOME_A (LGUI_T(KC_A))
@@ -42,10 +42,10 @@ enum custom_keycodes {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
-    KC_ESCAPE,   KC_1,           KC_2,      KC_3,      KC_4,      KC_5,           OSL(4),                       OSL(4),         KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,
+    QK_GESC,   KC_1,           KC_2,      KC_3,      KC_4,      KC_5,           OSL(4),                       OSL(4),         KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,
     KC_TAB,      KC_Q,           KC_W,      KC_E,      KC_R,      KC_T,           KC_EQUAL,                     KC_MINUS,       KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
     CAPS_WORD,   HOME_A,         HOME_S,    HOME_D,    HOME_F,    KC_G,           KC_LBRC,                      KC_RBRC,        KC_H,           HOME_J,         HOME_K,         HOME_L,         HOME_SCLN,      KC_QUOTE,
-    KC_LSFT,     KC_Z,           KC_X,      KC_C,      KC_V,      KC_B,                                                         KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       LM(5,MOD_LSFT),
+    KC_LSFT,     KC_Z,           KC_X,      KC_C,      KC_V,      KC_B,                                                         KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSFT,
     CAPS_WORD,   KC_CAPS_LOCK,   _______,   KC_LALT,   KC_LGUI,   TD(DANCE_0),                                                  TD(DANCE_1),    KC_RGUI,        MT(MOD_LALT, KC_ESCAPE),_______, _______, _______,
                                                                   KC_SPACE,   MO(1),   MO(2),                   MO(2),   MO(1),   KC_ENTER
   ),
@@ -80,14 +80,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______,                                 _______, _______, _______, _______, _______, _______,
     _______, _______, HSV_0_255_255,  HSV_86_255_128, HSV_172_255_255,RGB_MOD,                                                                                                        RGB_TOG,        _______, _______, _______, _______, _______,
     RGB_VAD,        RGB_VAI,        TOGGLE_LAYER_COLOR,                RGB_SLD,        RGB_HUD,        RGB_HUI
-  ),
-  [5] = LAYOUT_moonlander(
-    KC_TILD,        _______, _______, _______, _______, _______, _______,                                 _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______,                                 _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______,                                                                 _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______,                                 _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______,                                                                                                 _______, _______, _______, _______, _______, _______,
-    _______, _______, _______,                 _______, _______, _______
   ),
 };
 // clang-format on
