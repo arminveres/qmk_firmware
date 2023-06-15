@@ -9,5 +9,11 @@ CONVERT_TO = rp2040_ce
 
 SRC += \
 	oled.c \
-	encoder.c \
-	features/achordion.c
+	encoder.c
+
+CFLAGS += -Ilib/arminveres
+
+LIB_SRC += \
+	lib/arminveres/achordion.c \
+	lib/arminveres/sentence_case.c
+

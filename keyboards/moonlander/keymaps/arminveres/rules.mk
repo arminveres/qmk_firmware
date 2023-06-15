@@ -10,5 +10,10 @@ CAPS_WORD_ENABLE = yes
 SRC += \
 	matrix.c \
 	tap_dance.c \
-	rgb.c \
-	features/achordion.c
+	rgb.c
+
+CFLAGS += -Ilib/arminveres
+
+LIB_SRC += \
+	lib/arminveres/achordion.c \
+	lib/arminveres/sentence_case.c

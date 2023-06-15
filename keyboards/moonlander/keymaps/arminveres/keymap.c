@@ -2,7 +2,8 @@
 #include "keycodes.h"
 #include "quantum.h"
 #include "tap_dance.h"
-#include "features/achordion.h"
+#include "achordion.h"
+#include "sentence_case.h"
 
 #define CAPS_WORD QK_CAPS_WORD_TOGGLE
 #define USE_HOMEROW_MODS
@@ -90,6 +91,9 @@ void keyboard_post_init_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_achordion(keycode, record)) {
+        return false;
+    }
+    if (!process_sentence_case(keycode, record)) {
         return false;
     }
     switch (keycode) {
