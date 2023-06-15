@@ -1,1 +1,0 @@
-keyboards/keychron/q1/rev_0100/keymaps/arminveres/keymap.c
