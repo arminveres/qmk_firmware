@@ -39,6 +39,8 @@
  */
 
 // NOTE: We are using the GACS Home Row mods!
+// TODO: (aver) add following mappings
+// - add gaming layer wihtout homerows
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -51,33 +53,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├─────────┼────────┼────────┼────────┼────────┼─────┼────────────┐   ┌────────────┼─────┼────────┼────────┼────────┼───────────┼──────┤
 //    │  lsft   │   z    │   x    │   c    │   v    │  b  │    mute    │   │            │  n  │   m    │   ,    │   .    │     /     │ rsft │
 //    └─────────┴────────┼────────┼────────┼────────┼─────┼────────────┤   ├────────────┼─────┼────────┼────────┼────────┼───────────┴──────┘
-//                       │  ralt  │   [    │  lgui  │ spc │ MO(_LOWER) │   │ MO(_LOWER) │ ent │  lgui  │   ]    │  ralt  │                   
-//                       └────────┴────────┴────────┴─────┴────────────┘   └────────────┴─────┴────────┴────────┴────────┘                   
+//                       │        │  lgui  │  ralt  │ spc │ MO(_LOWER) │   │ MO(_LOWER) │ ent │  ralt  │  lgui  │        │
+//                       └────────┴────────┴────────┴─────┴────────────┘   └────────────┴─────┴────────┴────────┴────────┘
 [_QWERTY] = LAYOUT(
   KC_ESC  , KC_1   , KC_2    , KC_3    , KC_4    , KC_5   ,                               KC_6   , KC_7    , KC_8    , KC_9    , KC_0      , KC_BSPC,
   KC_TAB  , KC_Q   , KC_W    , KC_E    , KC_R    , KC_T   ,                               KC_Y   , KC_U    , KC_I    , KC_O    , KC_P      , KC_BSLS,
   CW_TOGG , HOME_A , HOME_S  , HOME_D  , HOME_F  , KC_G   ,                               KC_H   , HOME_J  , HOME_K  , HOME_L  , HOME_SCLN , KC_QUOT,
   KC_LSFT , KC_Z   , KC_X    , KC_C    , KC_V    , KC_B   , KC_MUTE    ,     _______    , KC_N   , KC_M    , KC_COMM , KC_DOT  , KC_SLSH   , KC_RSFT,
-                     KC_RALT , KC_LBRC , KC_LGUI , KC_SPC , MO(_LOWER) ,     MO(_LOWER) , KC_ENT , KC_LGUI , KC_RBRC , KC_RALT                      
+                     _______ , KC_LGUI , KC_RALT , KC_SPC , MO(_LOWER) ,     MO(_LOWER) , KC_ENT , KC_RALT , KC_LGUI , _______
 ),
 
 //    ┌─────────┬─────┬─────┬─────┬─────┬─────┐                       ┌──────┬──────┬──────┬──────┬──────┬─────┐
 //    │         │ f1  │ f2  │ f3  │ f4  │ f5  │                       │  f6  │  f7  │  f8  │  f9  │ f10  │ del │
 //    ├─────────┼─────┼─────┼─────┼─────┼─────┤                       ├──────┼──────┼──────┼──────┼──────┼─────┤
-//    │         │  ~  │     │     │  +  │  =  │                       │ pgup │ home │      │      │      │ f11 │
+//    │         │  ~  │  {  │  }  │  +  │  =  │                       │ pgup │ home │      │      │      │ f11 │
 //    ├─────────┼─────┼─────┼─────┼─────┼─────┤                       ├──────┼──────┼──────┼──────┼──────┼─────┤
-//    │         │  `  │     │     │  _  │  -  │                       │ left │ down │  up  │ rght │      │ f12 │
+//    │         │  `  │  [  │  ]  │  _  │  -  │                       │ left │ down │  up  │ rght │      │ f12 │
 //    ├─────────┼─────┼─────┼─────┼─────┼─────┼─────────┐   ┌─────────┼──────┼──────┼──────┼──────┼──────┼─────┤
 //    │ CW_TOGG │     │     │     │     │     │ QK_BOOT │   │ QK_BOOT │ pgdn │ end  │ mprv │ mnxt │ mply │     │
 //    └─────────┴─────┼─────┼─────┼─────┼─────┼─────────┤   ├─────────┼──────┼──────┼──────┼──────┼──────┴─────┘
-//                    │     │     │     │     │         │   │         │      │      │      │      │             
-//                    └─────┴─────┴─────┴─────┴─────────┘   └─────────┴──────┴──────┴──────┴──────┘             
+//                    │     │     │     │     │         │   │         │      │      │      │      │
+//                    └─────┴─────┴─────┴─────┴─────────┘   └─────────┴──────┴──────┴──────┴──────┘
 [_LOWER] = LAYOUT(
   _______ , KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_F5   ,                         KC_F6   , KC_F7   , KC_F8   , KC_F9    , KC_F10  , KC_DEL ,
-  _______ , KC_TILD , _______ , _______ , KC_PLUS , KC_EQL  ,                         KC_PGUP , KC_HOME , _______ , _______  , _______ , KC_F11 ,
-  _______ , KC_GRV  , _______ , _______ , KC_UNDS , KC_MINS ,                         KC_LEFT , KC_DOWN , KC_UP   , KC_RIGHT , _______ , KC_F12 ,
+  _______ , KC_TILD , KC_LCBR , KC_RCBR , KC_PLUS , KC_EQL  ,                         KC_PGUP , KC_HOME , _______ , _______  , _______ , KC_F11 ,
+  _______ , KC_GRV  , KC_LBRC , KC_RBRC , KC_UNDS , KC_MINS ,                         KC_LEFT , KC_DOWN , KC_UP   , KC_RIGHT , _______ , KC_F12 ,
   CW_TOGG , _______ , _______ , _______ , _______ , _______ , QK_BOOT ,     QK_BOOT , KC_PGDN , KC_END  , KC_MPRV , KC_MNXT  , KC_MPLY , _______,
-                      _______ , _______ , _______ , _______ , _______ ,     _______ , _______ , _______ , _______ , _______                     
+                      _______ , _______ , _______ , _______ , _______ ,     _______ , _______ , _______ , _______ , _______
 ),
 
 //    ┌─────┬──────┬──────┬──────┬───────┬──────┐               ┌──────┬───────┬──────┬───────┬───────┬──────┐
@@ -89,14 +91,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├─────┼──────┼──────┼──────┼───────┼──────┼─────┐   ┌─────┼──────┼───────┼──────┼───────┼───────┼──────┤
 //    │     │ undo │ cut  │ copy │ paste │  no  │     │   │     │  no  │ lSTRT │  no  │ lEND  │  no   │      │
 //    └─────┴──────┼──────┼──────┼───────┼──────┼─────┤   ├─────┼──────┼───────┼──────┼───────┼───────┴──────┘
-//                 │      │      │       │      │     │   │     │      │       │      │       │               
-//                 └──────┴──────┴───────┴──────┴─────┘   └─────┴──────┴───────┴──────┴───────┘               
+//                 │      │      │       │      │     │   │     │      │       │      │       │
+//                 └──────┴──────┴───────┴──────┴─────┘   └─────┴──────┴───────┴──────┴───────┘
 [_RAISE] = LAYOUT(
   _______ , _______ , _______ , _______ , _______  , _______ ,                         _______ , _______  , _______ , _______  , _______  , _______,
   _______ , KC_INS  , KC_PSCR , KC_APP  , XXXXXXX  , XXXXXXX ,                         KC_PGUP , KC_PRVWD , KC_UP   , KC_NXTWD , KC_DLINE , KC_BSPC,
   _______ , KC_LALT , KC_LCTL , KC_LSFT , XXXXXXX  , KC_CAPS ,                         KC_PGDN , KC_LEFT  , KC_DOWN , KC_RGHT  , KC_DEL   , KC_BSPC,
   _______ , KC_UNDO , KC_CUT  , KC_COPY , KC_PASTE , XXXXXXX , _______ ,     _______ , XXXXXXX , KC_LSTRT , XXXXXXX , KC_LEND  , XXXXXXX  , _______,
-                      _______ , _______ , _______  , _______ , _______ ,     _______ , _______ , _______  , _______ , _______                      
+                      _______ , _______ , _______  , _______ , _______ ,     _______ , _______ , _______  , _______ , _______
 ),
 
 //    ┌─────────┬────┬─────────┬─────────┬─────────┬─────┐               ┌─────┬──────┬──────┬──────┬────┬────┐
@@ -108,14 +110,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├─────────┼────┼─────────┼─────────┼─────────┼─────┼─────┐   ┌─────┼─────┼──────┼──────┼──────┼────┼────┤
 //    │   no    │ no │   no    │   no    │   no    │ no  │ no  │   │ no  │ no  │ mprv │ mply │ mnxt │ no │ no │
 //    └─────────┴────┼─────────┼─────────┼─────────┼─────┼─────┤   ├─────┼─────┼──────┼──────┼──────┼────┴────┘
-//                   │         │         │         │     │     │   │     │     │      │      │      │          
-//                   └─────────┴─────────┴─────────┴─────┴─────┘   └─────┴─────┴──────┴──────┴──────┘          
+//                   │         │         │         │     │     │   │     │     │      │      │      │
+//                   └─────────┴─────────┴─────────┴─────┴─────┘   └─────┴─────┴──────┴──────┴──────┘
 [_ADJUST] = LAYOUT(
   XXXXXXX , XXXXXXX , XXXXXXX   , XXXXXXX    , XXXXXXX , XXXXXXX ,                         XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX,
   QK_BOOT , XXXXXXX , KC_QWERTY , KC_COLEMAK , CG_TOGG , XXXXXXX ,                         XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX,
   XXXXXXX , XXXXXXX , CG_TOGG   , XXXXXXX    , XXXXXXX , XXXXXXX ,                         XXXXXXX , KC_VOLD , KC_MUTE , KC_VOLU , XXXXXXX , XXXXXXX,
   XXXXXXX , XXXXXXX , XXXXXXX   , XXXXXXX    , XXXXXXX , XXXXXXX , XXXXXXX ,     XXXXXXX , XXXXXXX , KC_MPRV , KC_MPLY , KC_MNXT , XXXXXXX , XXXXXXX,
-                      _______   , _______    , _______ , _______ , _______ ,     _______ , _______ , _______ , _______ , _______                    
+                      _______   , _______    , _______ , _______ , _______ ,     _______ , _______ , _______ , _______ , _______
 )
 };
 // clang-format on
@@ -266,3 +268,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 void matrix_scan_user(void) {
     achordion_task();
 }
+
