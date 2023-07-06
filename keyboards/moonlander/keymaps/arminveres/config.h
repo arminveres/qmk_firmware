@@ -16,7 +16,7 @@
 #ifdef TAPPING_TERM
 #    undef TAPPING_TERM
 #endif
-#define TAPPING_TERM 145
+#define TAPPING_TERM 160
 
 #define ORYX_CONFIGURATOR
 #define USB_SUSPEND_WAKEUP_DELAY 0

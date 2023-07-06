@@ -41,6 +41,7 @@
 // NOTE: We are using the GACS Home Row mods!
 // TODO: (aver) add following mappings
 // - add gaming layer wihtout homerows
+// - investigate one-shot SHIFT/CONTROL
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

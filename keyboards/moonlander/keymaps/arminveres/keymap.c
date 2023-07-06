@@ -1,7 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "keycodes.h"
 #include "quantum.h"
-#include "tap_dance.h"
 #include "achordion.h"
 #include "sentence_case.h"
 
@@ -46,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,      KC_Q,           KC_W,      KC_E,      KC_R,      KC_T,           KC_EQUAL,                     KC_MINUS,       KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
     CAPS_WORD,   HOME_A,         HOME_S,    HOME_D,    HOME_F,    KC_G,           KC_LBRC,                      KC_RBRC,        KC_H,           HOME_J,         HOME_K,         HOME_L,         HOME_SCLN,      KC_QUOTE,
     KC_LSFT,     KC_Z,           KC_X,      KC_C,      KC_V,      KC_B,                                                         KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSFT,
-    CAPS_WORD,   KC_CAPS_LOCK,   KC_ESC,   KC_LALT,   KC_LGUI,   TD(DANCE_0),                                                  TD(DANCE_1),    KC_RGUI,        MT(MOD_LALT, KC_ESCAPE),_______, _______, _______,
+    CAPS_WORD,   KC_CAPS_LOCK,   KC_ESC,   KC_LALT,   KC_LGUI,   KC_RALT,                                                  KC_RALT,    KC_RGUI,        MT(MOD_LALT, KC_ESCAPE),_______, _______, _______,
                                                                   KC_SPACE,   MO(1),   MO(2),                   MO(2),   MO(1),   KC_ENTER
   ),
   [1] = LAYOUT_moonlander(
