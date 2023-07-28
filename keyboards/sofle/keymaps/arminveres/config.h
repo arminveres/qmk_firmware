@@ -24,5 +24,14 @@ for more options.
 /// For more information see: https://docs.qmk.fm/#/tap_hold?id=tap-or-hold-decision-modes
 #define PERMISSIVE_HOLD
 
+/// Set encoder settings
+#ifdef ENCODER_RESOLUTION
+// Setting the resolution to 4 results in 10% increase e.g., in volume change. 2 is 20% so 8 should
+// result in 5%
+#    undef ENCODER_RESOLUTION
+#    define ENCODER_RESOLUTION 4
+#endif
+
 /// Custom Definitions
-#define USE_HOMEROW_MODS
+// #define USE_HOMEROW_MODS
+#define PARTIAL_HOME_MODS

@@ -3,6 +3,7 @@
 #include "achordion.h"
 #include "sentence_case.h"
 
+// NOTE: We are using the GACS Home Row mods!
 #ifdef USE_HOMEROW_MODS
 // Left-hand home row mods
 #    define HOME_A (LGUI_T(KC_A))
@@ -14,6 +15,19 @@
 #    define HOME_K (RCTL_T(KC_K))
 #    define HOME_L (LALT_T(KC_L))
 #    define HOME_SCLN (RGUI_T(KC_SCLN))
+
+#elif defined(PARTIAL_HOME_MODS)
+// Left-hand home row mods
+#    define HOME_A (KC_A)
+#    define HOME_S (KC_S)
+#    define HOME_D (LALT_T(KC_D))
+#    define HOME_F (LGUI_T(KC_F))
+// Right-hand home row mods
+#    define HOME_J (RGUI_T(KC_J))
+#    define HOME_K (LALT_T(KC_K))
+#    define HOME_L (KC_L)
+#    define HOME_SCLN (KC_SCLN)
+
 #else
 // Left-hand home row mods
 #    define HOME_A (KC_A)
@@ -38,30 +52,28 @@
 ),
  */
 
-// NOTE: We are using the GACS Home Row mods!
 // TODO: (aver) add following mappings
-// - add gaming layer wihtout homerows
-// - investigate one-shot SHIFT/CONTROL
+// - add layer without homerows
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-//    ┌─────────┬────────┬────────┬────────┬────────┬─────┐                             ┌─────┬────────┬────────┬────────┬───────────┬──────┐
-//    │   esc   │   1    │   2    │   3    │   4    │  5  │                             │  6  │   7    │   8    │   9    │     0     │ bspc │
-//    ├─────────┼────────┼────────┼────────┼────────┼─────┤                             ├─────┼────────┼────────┼────────┼───────────┼──────┤
-//    │   tab   │   q    │   w    │   e    │   r    │  t  │                             │  y  │   u    │   i    │   o    │     p     │ '\'  │
-//    ├─────────┼────────┼────────┼────────┼────────┼─────┤                             ├─────┼────────┼────────┼────────┼───────────┼──────┤
-//    │ CW_TOGG │ HOME_A │ HOME_S │ HOME_D │ HOME_F │  g  │                             │  h  │ HOME_J │ HOME_K │ HOME_L │ HOME_SCLN │ "'"  │
-//    ├─────────┼────────┼────────┼────────┼────────┼─────┼────────────┐   ┌────────────┼─────┼────────┼────────┼────────┼───────────┼──────┤
-//    │  lsft   │   z    │   x    │   c    │   v    │  b  │    mute    │   │            │  n  │   m    │   ,    │   .    │     /     │ rsft │
-//    └─────────┴────────┼────────┼────────┼────────┼─────┼────────────┤   ├────────────┼─────┼────────┼────────┼────────┼───────────┴──────┘
-//                       │        │  lgui  │  ralt  │ spc │ MO(_LOWER) │   │ MO(_LOWER) │ ent │  ralt  │  lgui  │        │
-//                       └────────┴────────┴────────┴─────┴────────────┘   └────────────┴─────┴────────┴────────┴────────┘
+//    ┌───────────────┬────────┬────────┬────────┬────────┬─────┐                             ┌─────┬────────┬────────┬────────┬───────────┬───────────────┐
+//    │      esc      │   1    │   2    │   3    │   4    │  5  │                             │  6  │   7    │   8    │   9    │     0     │     bspc      │
+//    ├───────────────┼────────┼────────┼────────┼────────┼─────┤                             ├─────┼────────┼────────┼────────┼───────────┼───────────────┤
+//    │      tab      │   q    │   w    │   e    │   r    │  t  │                             │  y  │   u    │   i    │   o    │     p     │       \       │
+//    ├───────────────┼────────┼────────┼────────┼────────┼─────┤                             ├─────┼────────┼────────┼────────┼───────────┼───────────────┤
+//    │     lctl      │ HOME_A │ HOME_S │ HOME_D │ HOME_F │  g  │                             │  h  │ HOME_J │ HOME_K │ HOME_L │ HOME_SCLN │   RCTL_T(')   │
+//    ├───────────────┼────────┼────────┼────────┼────────┼─────┼────────────┐   ┌────────────┼─────┼────────┼────────┼────────┼───────────┼───────────────┤
+//    │ OSM(MOD_LSFT) │   z    │   x    │   c    │   v    │  b  │    mute    │   │            │  n  │   m    │   ,    │   .    │     /     │ OSM(MOD_RSFT) │
+//    └───────────────┴────────┼────────┼────────┼────────┼─────┼────────────┤   ├────────────┼─────┼────────┼────────┼────────┼───────────┴───────────────┘
+//                             │        │  lgui  │  ralt  │ spc │ MO(_LOWER) │   │ MO(_LOWER) │ ent │  ralt  │  lgui  │        │                            
+//                             └────────┴────────┴────────┴─────┴────────────┘   └────────────┴─────┴────────┴────────┴────────┘                            
 [_QWERTY] = LAYOUT(
-  KC_ESC  , KC_1   , KC_2    , KC_3    , KC_4    , KC_5   ,                               KC_6   , KC_7    , KC_8    , KC_9    , KC_0      , KC_BSPC,
-  KC_TAB  , KC_Q   , KC_W    , KC_E    , KC_R    , KC_T   ,                               KC_Y   , KC_U    , KC_I    , KC_O    , KC_P      , KC_BSLS,
-  CW_TOGG , HOME_A , HOME_S  , HOME_D  , HOME_F  , KC_G   ,                               KC_H   , HOME_J  , HOME_K  , HOME_L  , HOME_SCLN , KC_QUOT,
-  KC_LSFT , KC_Z   , KC_X    , KC_C    , KC_V    , KC_B   , KC_MUTE    ,     _______    , KC_N   , KC_M    , KC_COMM , KC_DOT  , KC_SLSH   , KC_RSFT,
-                     _______ , KC_LGUI , KC_RALT , KC_SPC , MO(_LOWER) ,     MO(_LOWER) , KC_ENT , KC_RALT , KC_LGUI , _______
+  KC_ESC        , KC_1   , KC_2    , KC_3    , KC_4    , KC_5   ,                               KC_6   , KC_7    , KC_8    , KC_9    , KC_0      , KC_BSPC        ,
+  KC_TAB        , KC_Q   , KC_W    , KC_E    , KC_R    , KC_T   ,                               KC_Y   , KC_U    , KC_I    , KC_O    , KC_P      , KC_BSLS        ,
+  KC_LCTL       , HOME_A , HOME_S  , HOME_D  , HOME_F  , KC_G   ,                               KC_H   , HOME_J  , HOME_K  , HOME_L  , HOME_SCLN , RCTL_T(KC_QUOT),
+  OSM(MOD_LSFT) , KC_Z   , KC_X    , KC_C    , KC_V    , KC_B   , KC_MUTE    ,     _______    , KC_N   , KC_M    , KC_COMM , KC_DOT  , KC_SLSH   , OSM(MOD_RSFT)  ,
+                           _______ , KC_LGUI , KC_RALT , KC_SPC , MO(_LOWER) ,     MO(_LOWER) , KC_ENT , KC_RALT , KC_LGUI , _______                              
 ),
 
 //    ┌─────────┬─────┬─────┬─────┬─────┬─────┐                       ┌──────┬──────┬──────┬──────┬──────┬─────┐
@@ -69,18 +81,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├─────────┼─────┼─────┼─────┼─────┼─────┤                       ├──────┼──────┼──────┼──────┼──────┼─────┤
 //    │         │  ~  │  {  │  }  │  +  │  =  │                       │ pgup │ home │      │      │      │ f11 │
 //    ├─────────┼─────┼─────┼─────┼─────┼─────┤                       ├──────┼──────┼──────┼──────┼──────┼─────┤
-//    │         │  `  │  [  │  ]  │  _  │  -  │                       │ left │ down │  up  │ rght │      │ f12 │
+//    │ CW_TOGG │  `  │  [  │  ]  │  _  │  -  │                       │ left │ down │  up  │ rght │      │ f12 │
 //    ├─────────┼─────┼─────┼─────┼─────┼─────┼─────────┐   ┌─────────┼──────┼──────┼──────┼──────┼──────┼─────┤
-//    │ CW_TOGG │     │     │     │     │     │ QK_BOOT │   │ QK_BOOT │ pgdn │ end  │ mprv │ mnxt │ mply │     │
+//    │         │     │     │     │     │     │ QK_BOOT │   │ QK_BOOT │ pgdn │ end  │ mprv │ mnxt │ mply │     │
 //    └─────────┴─────┼─────┼─────┼─────┼─────┼─────────┤   ├─────────┼──────┼──────┼──────┼──────┼──────┴─────┘
-//                    │     │     │     │     │         │   │         │      │      │      │      │
-//                    └─────┴─────┴─────┴─────┴─────────┘   └─────────┴──────┴──────┴──────┴──────┘
+//                    │     │     │     │     │         │   │         │      │      │      │      │             
+//                    └─────┴─────┴─────┴─────┴─────────┘   └─────────┴──────┴──────┴──────┴──────┘             
 [_LOWER] = LAYOUT(
   _______ , KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_F5   ,                         KC_F6   , KC_F7   , KC_F8   , KC_F9    , KC_F10  , KC_DEL ,
   _______ , KC_TILD , KC_LCBR , KC_RCBR , KC_PLUS , KC_EQL  ,                         KC_PGUP , KC_HOME , _______ , _______  , _______ , KC_F11 ,
-  _______ , KC_GRV  , KC_LBRC , KC_RBRC , KC_UNDS , KC_MINS ,                         KC_LEFT , KC_DOWN , KC_UP   , KC_RIGHT , _______ , KC_F12 ,
-  CW_TOGG , _______ , _______ , _______ , _______ , _______ , QK_BOOT ,     QK_BOOT , KC_PGDN , KC_END  , KC_MPRV , KC_MNXT  , KC_MPLY , _______,
-                      _______ , _______ , _______ , _______ , _______ ,     _______ , _______ , _______ , _______ , _______
+  CW_TOGG , KC_GRV  , KC_LBRC , KC_RBRC , KC_UNDS , KC_MINS ,                         KC_LEFT , KC_DOWN , KC_UP   , KC_RIGHT , _______ , KC_F12 ,
+  _______ , _______ , _______ , _______ , _______ , _______ , QK_BOOT ,     QK_BOOT , KC_PGDN , KC_END  , KC_MPRV , KC_MNXT  , KC_MPLY , _______,
+                      _______ , _______ , _______ , _______ , _______ ,     _______ , _______ , _______ , _______ , _______                     
 ),
 
 //    ┌─────┬──────┬──────┬──────┬───────┬──────┐               ┌──────┬───────┬──────┬───────┬───────┬──────┐
@@ -92,39 +104,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├─────┼──────┼──────┼──────┼───────┼──────┼─────┐   ┌─────┼──────┼───────┼──────┼───────┼───────┼──────┤
 //    │     │ undo │ cut  │ copy │ paste │  no  │     │   │     │  no  │ lSTRT │  no  │ lEND  │  no   │      │
 //    └─────┴──────┼──────┼──────┼───────┼──────┼─────┤   ├─────┼──────┼───────┼──────┼───────┼───────┴──────┘
-//                 │      │      │       │      │     │   │     │      │       │      │       │
-//                 └──────┴──────┴───────┴──────┴─────┘   └─────┴──────┴───────┴──────┴───────┘
-[_RAISE] = LAYOUT(
+//                 │      │      │       │      │     │   │     │      │       │      │       │               
+//                 └──────┴──────┴───────┴──────┴─────┘   └─────┴──────┴───────┴──────┴───────┘               
+[_GAMING] = LAYOUT(
   _______ , _______ , _______ , _______ , _______  , _______ ,                         _______ , _______  , _______ , _______  , _______  , _______,
   _______ , KC_INS  , KC_PSCR , KC_APP  , XXXXXXX  , XXXXXXX ,                         KC_PGUP , KC_PRVWD , KC_UP   , KC_NXTWD , KC_DLINE , KC_BSPC,
   _______ , KC_LALT , KC_LCTL , KC_LSFT , XXXXXXX  , KC_CAPS ,                         KC_PGDN , KC_LEFT  , KC_DOWN , KC_RGHT  , KC_DEL   , KC_BSPC,
   _______ , KC_UNDO , KC_CUT  , KC_COPY , KC_PASTE , XXXXXXX , _______ ,     _______ , XXXXXXX , KC_LSTRT , XXXXXXX , KC_LEND  , XXXXXXX  , _______,
-                      _______ , _______ , _______  , _______ , _______ ,     _______ , _______ , _______  , _______ , _______
+                      _______ , _______ , _______  , _______ , _______ ,     _______ , _______ , _______  , _______ , _______                      
 ),
 
-//    ┌─────────┬────┬─────────┬─────────┬─────────┬─────┐               ┌─────┬──────┬──────┬──────┬────┬────┐
-//    │   no    │ no │   no    │   no    │   no    │ no  │               │ no  │  no  │  no  │  no  │ no │ no │
-//    ├─────────┼────┼─────────┼─────────┼─────────┼─────┤               ├─────┼──────┼──────┼──────┼────┼────┤
-//    │ QK_BOOT │ no │ qWERTY  │ cOLEMAK │ CG_TOGG │ no  │               │ no  │  no  │  no  │  no  │ no │ no │
-//    ├─────────┼────┼─────────┼─────────┼─────────┼─────┤               ├─────┼──────┼──────┼──────┼────┼────┤
-//    │   no    │ no │ CG_TOGG │   no    │   no    │ no  │               │ no  │ vold │ mute │ volu │ no │ no │
-//    ├─────────┼────┼─────────┼─────────┼─────────┼─────┼─────┐   ┌─────┼─────┼──────┼──────┼──────┼────┼────┤
-//    │   no    │ no │   no    │   no    │   no    │ no  │ no  │   │ no  │ no  │ mprv │ mply │ mnxt │ no │ no │
-//    └─────────┴────┼─────────┼─────────┼─────────┼─────┼─────┤   ├─────┼─────┼──────┼──────┼──────┼────┴────┘
-//                   │         │         │         │     │     │   │     │     │      │      │      │
-//                   └─────────┴─────────┴─────────┴─────┴─────┘   └─────┴─────┴──────┴──────┴──────┘
+//    ┌─────────┬────┬─────────┬────────┬─────────┬─────┐               ┌─────┬──────┬──────┬──────┬────┬────┐
+//    │   no    │ no │   no    │   no   │   no    │ no  │               │ no  │  no  │  no  │  no  │ no │ no │
+//    ├─────────┼────┼─────────┼────────┼─────────┼─────┤               ├─────┼──────┼──────┼──────┼────┼────┤
+//    │ QK_BOOT │ no │ qWERTY  │ gAMING │ CG_TOGG │ no  │               │ no  │  no  │  no  │  no  │ no │ no │
+//    ├─────────┼────┼─────────┼────────┼─────────┼─────┤               ├─────┼──────┼──────┼──────┼────┼────┤
+//    │   no    │ no │ CG_TOGG │   no   │   no    │ no  │               │ no  │ vold │ mute │ volu │ no │ no │
+//    ├─────────┼────┼─────────┼────────┼─────────┼─────┼─────┐   ┌─────┼─────┼──────┼──────┼──────┼────┼────┤
+//    │   no    │ no │   no    │   no   │   no    │ no  │ no  │   │ no  │ no  │ mprv │ mply │ mnxt │ no │ no │
+//    └─────────┴────┼─────────┼────────┼─────────┼─────┼─────┤   ├─────┼─────┼──────┼──────┼──────┼────┴────┘
+//                   │         │        │         │     │     │   │     │     │      │      │      │          
+//                   └─────────┴────────┴─────────┴─────┴─────┘   └─────┴─────┴──────┴──────┴──────┘          
 [_ADJUST] = LAYOUT(
-  XXXXXXX , XXXXXXX , XXXXXXX   , XXXXXXX    , XXXXXXX , XXXXXXX ,                         XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX,
-  QK_BOOT , XXXXXXX , KC_QWERTY , KC_COLEMAK , CG_TOGG , XXXXXXX ,                         XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX,
-  XXXXXXX , XXXXXXX , CG_TOGG   , XXXXXXX    , XXXXXXX , XXXXXXX ,                         XXXXXXX , KC_VOLD , KC_MUTE , KC_VOLU , XXXXXXX , XXXXXXX,
-  XXXXXXX , XXXXXXX , XXXXXXX   , XXXXXXX    , XXXXXXX , XXXXXXX , XXXXXXX ,     XXXXXXX , XXXXXXX , KC_MPRV , KC_MPLY , KC_MNXT , XXXXXXX , XXXXXXX,
-                      _______   , _______    , _______ , _______ , _______ ,     _______ , _______ , _______ , _______ , _______
+  XXXXXXX , XXXXXXX , XXXXXXX   , XXXXXXX   , XXXXXXX , XXXXXXX ,                         XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX,
+  QK_BOOT , XXXXXXX , KC_QWERTY , KC_GAMING , CG_TOGG , XXXXXXX ,                         XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX,
+  XXXXXXX , XXXXXXX , CG_TOGG   , XXXXXXX   , XXXXXXX , XXXXXXX ,                         XXXXXXX , KC_VOLD , KC_MUTE , KC_VOLU , XXXXXXX , XXXXXXX,
+  XXXXXXX , XXXXXXX , XXXXXXX   , XXXXXXX   , XXXXXXX , XXXXXXX , XXXXXXX ,     XXXXXXX , XXXXXXX , KC_MPRV , KC_MPLY , KC_MNXT , XXXXXXX , XXXXXXX,
+                      _______   , _______   , _______ , _______ , _______ ,     _______ , _______ , _______ , _______ , _______                    
 )
 };
 // clang-format on
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    return update_tri_layer_state(state, _LOWER, _GAMING, _ADJUST);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -269,4 +281,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 void matrix_scan_user(void) {
     achordion_task();
 }
-

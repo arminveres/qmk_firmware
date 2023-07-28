@@ -34,8 +34,8 @@ static void print_status_narrow(void) {
         case _QWERTY:
             oled_write_P(PSTR("Base\n"), false);
             break;
-        case _RAISE:
-            oled_write_P(PSTR("Raise"), false);
+        case _GAMING:
+            oled_write_P(PSTR("Gaming"), false);
             break;
         case _LOWER:
             oled_write_P(PSTR("Lower"), false);

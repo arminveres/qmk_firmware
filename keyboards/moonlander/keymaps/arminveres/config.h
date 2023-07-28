@@ -28,4 +28,6 @@
 /// For more information see: https://docs.qmk.fm/#/tap_hold?id=tap-or-hold-decision-modes
 #define PERMISSIVE_HOLD
 
-#define USE_HOMEROW_MODS
+/// Custom Definitions
+// #define USE_HOMEROW_MODS
+#define PARTIAL_HOME_MODS
