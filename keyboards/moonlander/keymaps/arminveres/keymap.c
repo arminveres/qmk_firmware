@@ -56,21 +56,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     KC_ESC,   KC_1,           KC_2,      KC_3,      KC_4,      KC_5,           OSL(4),                       OSL(4),         KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,
     KC_TAB,      KC_Q,           KC_W,      KC_E,      KC_R,      KC_T,           KC_EQUAL,                     KC_MINUS,       KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
-    KC_LCTL,   HOME_A,         HOME_S,    HOME_D,    HOME_F,    KC_G,           KC_LBRC,                      KC_RBRC,        KC_H,           HOME_J,         HOME_K,         HOME_L,         HOME_SCLN,      RCTL_T(KC_QUOTE),
+    OSM(MOD_LCTL),   HOME_A,         HOME_S,    HOME_D,    HOME_F,    KC_G,           KC_LBRC,                      KC_RBRC,        KC_H,           HOME_J,         HOME_K,         HOME_L,         HOME_SCLN,      RCTL_T(KC_QUOTE),
     OSM(MOD_LSFT),     KC_Z,           KC_X,      KC_C,      KC_V,      KC_B,                                                         KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       OSM(MOD_RSFT),
-    CAPS_WORD,   KC_CAPS_LOCK,   KC_ESC,   KC_LALT,   KC_LGUI,   KC_RALT,                                                  KC_RALT,    KC_RGUI,        MT(MOD_LALT, KC_ESCAPE),_______, _______, _______,
+    KC_CAPS_LOCK,   _______,   KC_ESC,   KC_LALT,   KC_LGUI,   KC_RALT,                                                  KC_RALT,    KC_RGUI,        MT(MOD_LALT, KC_ESCAPE),_______, _______, _______,
                                                                   KC_SPACE,   MO(1),   MO(2),                   MO(2),   MO(1),   KC_ENTER
   ),
   [1] = LAYOUT_moonlander(
     _______,       KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          _______,                                 _______, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_DELETE,
     _______, KC_TILD, _______, _______, _______, _______, _______,                                 _______, KC_PGUP,        KC_HOME,        _______, _______, _______, KC_F11,
-    _______, KC_GRV, _______, _______, _______, _______, _______,                                                                 _______, KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       _______, KC_F12,
+    CAPS_WORD, KC_GRV, _______, _______, _______, _______, _______,                                                                 _______, KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       _______, KC_F12,
     _______, _______, _______, _______, _______, _______,                                 KC_PGDN,      KC_END,         KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_MEDIA_PLAY_PAUSE,_______,
     _______, _______, _______, _______, _______, _______,                                                                                                 _______, KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_AUDIO_MUTE,  _______, _______,
     _______, _______, _______,                 _______, _______, _______
   ),
   [2] = LAYOUT_moonlander(
-    _______,        _______, _______, _______, _______, _______, _______,                                 _______, _______, _______, _______, _______, _______, _______,
+    QK_BOOT, _______, _______, _______, _______, _______, _______,                                 _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, KC_MS_UP,       _______, _______, KC_BRIGHTNESS_UP,                                _______, _______, _______,          _______, _______,          _______, _______,
     _______, _______,          KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    _______, KC_BRIGHTNESS_DOWN,                                                                _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,                                 _______, _______, _______, _______, _______, _______,
