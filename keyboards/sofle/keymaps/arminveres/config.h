@@ -12,13 +12,12 @@ for more options.
 #    define NO_PRINT
 #endif // !NO_PRINT
 
-/// Increase Tapping term from the default 200ms to 220ms for better fast typing!
 /// To do individual keys: https://docs.qmk.fm/#/tap_hold?id=tapping-term
 #ifdef TAPPING_TERM
 #    undef TAPPING_TERM
 #endif
-
-#define TAPPING_TERM 160
+/// Change Tapping Term from the default 200ms!
+#define TAPPING_TERM 200
 
 /// In combination with fast typing and home row mods, PERMISSIVE_HOLD enables to register keys instead of layer changes
 /// For more information see: https://docs.qmk.fm/#/tap_hold?id=tap-or-hold-decision-modes
@@ -29,7 +28,7 @@ for more options.
 // Setting the resolution to 4 results in 10% increase e.g., in volume change. 2 is 20% so 8 should
 // result in 5%
 #    undef ENCODER_RESOLUTION
-#    define ENCODER_RESOLUTION 4
+#    define ENCODER_RESOLUTION 8
 #endif
 
 /// Custom Definitions

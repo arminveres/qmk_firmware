@@ -18,15 +18,15 @@
 
 #elif defined(PARTIAL_HOME_MODS)
 // Left-hand home row mods
-#    define HOME_A (KC_A)
-#    define HOME_S (KC_S)
-#    define HOME_D (LALT_T(KC_D))
-#    define HOME_F (LGUI_T(KC_F))
+#    define HOME_A (LGUI_T(KC_A))
+#    define HOME_S (LALT_T(KC_S))
+#    define HOME_D (KC_D)
+#    define HOME_F (KC_F)
 // Right-hand home row mods
-#    define HOME_J (RGUI_T(KC_J))
-#    define HOME_K (LALT_T(KC_K))
-#    define HOME_L (KC_L)
-#    define HOME_SCLN (KC_SCLN)
+#    define HOME_J (KC_J)
+#    define HOME_K (KC_K)
+#    define HOME_L (LALT_T(KC_L))
+#    define HOME_SCLN (RGUI_T(KC_SCLN))
 
 #else
 // Left-hand home row mods
