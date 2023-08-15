@@ -1,5 +1,5 @@
 #include QMK_KEYBOARD_H
-#include "common_exports.h"
+#include "enums.h"
 #include "achordion.h"
 #include "sentence_case.h"
 
