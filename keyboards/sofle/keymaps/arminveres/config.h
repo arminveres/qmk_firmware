@@ -31,6 +31,14 @@ for more options.
 #    define ENCODER_RESOLUTION 8
 #endif
 
+#ifdef OLED_ENABLE
+#    define OLED_TIMEOUT 20000 // 120000 = 2 minutes in ms.
+#    define OLED_BRIGHTNESS 50 // Default 100.
+#    define SPLIT_WPM_ENABLE   // Enable WPM across split keyboards (+268).
+#    define SPLIT_OLED_ENABLE  // Synx on/off OLED state between halves (+100).
+#endif                         // OLED_ENABLE
+
 /// Custom Definitions
 // #define USE_HOMEROW_MODS
 #define PARTIAL_HOME_MODS
+#define USE_WPM_OLED
