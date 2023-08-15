@@ -5,6 +5,7 @@ CONSOLE_ENABLE = no
 EXTRAKEY_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 WPM_ENABLE = yes
+TRI_LAYER_ENABLE = yes
 # TAP_DANCE_ENABLE = yes
 
 # Bootloader/ MCU configs
