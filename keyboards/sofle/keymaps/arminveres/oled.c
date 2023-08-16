@@ -8,13 +8,6 @@
 // ================================================================================================
 // WPM Calculator
 // ================================================================================================
-#        define DISPLAY_WIDTH 32
-char    wpm_text[8] = "WPM: ";
-int     timer       = 0;
-int     y           = DISPLAY_WIDTH - 1;
-uint8_t currwpm     = 0;
-uint8_t oldwpm      = 0;
-
 #        define WPM_GRAPH_SPEED_MAX 130.0f    // WPM value at the top of the graph window
 #        define WPM_GRAPH_REFRESH_INTERVAL 80 // how often screen will be refreshed with WPM values; in milliseconds
 #        define WPM_GRAPH_REFRESH_TIMEOUT 800 // how often screen will be refreshed with WPM values; in milliseconds
@@ -26,8 +19,16 @@ uint8_t oldwpm      = 0;
 #            define WPM_GRAPH_BRIGHTNESS_MAX 255    // Max screen brightness
 #        endif
 
+#        define DISPLAY_WIDTH 32
+
 static inline void render_wpm(void) {
-    const int elapsed = timer_elapsed(timer);
+    char      wpm_text[8] = "WPM: ";
+    int       y           = DISPLAY_WIDTH - 1;
+    int       i           = 0;
+    uint8_t   currwpm     = 0;
+    uint8_t   oldwpm      = 0;
+    uint16_t  timer       = 0;
+    const int elapsed     = timer_elapsed(timer);
 
     // get current WPM value
     oldwpm  = currwpm;
@@ -38,12 +39,12 @@ static inline void render_wpm(void) {
         y = DISPLAY_WIDTH - ((currwpm / WPM_GRAPH_SPEED_MAX) * DISPLAY_WIDTH);
 
         // first draw actual value line
-        for (int i = 0; i < WPM_GRAPH_LINE_THICKNESS; i++) {
+        for (i = 0; i < WPM_GRAPH_LINE_THICKNESS; i++) {
             oled_write_pixel(1, y + i, true);
         }
 
         // then fill in area below the value line
-        for (int i = DISPLAY_WIDTH; i > y && 0 <= i; i--) {
+        for (i = DISPLAY_WIDTH; i > y && 0 <= i; i--) {
             oled_write_pixel(1, i, true);
         }
 
@@ -89,9 +90,8 @@ static inline void render_wpm(void) {
     if (currbr != newbr) {
         oled_set_brightness(newbr);
     }
-#        endif
+#        endif // __WPM_GRAPH_BRIGHTNESS_DEFINED
 }
-
 #    else
 // Simple qmk logo rendering
 static void render_logo(void) {
@@ -114,7 +114,7 @@ static void print_status_narrow(void) {
 
     // default layer
     switch (get_highest_layer(default_layer_state)) {
-        case _QWERTY:
+        case _QWERTY: {
             oled_write_ln_P(PSTR("Qwrt"), false);
             break;
         case _GAMING:
@@ -122,6 +122,7 @@ static void print_status_narrow(void) {
             break;
         default:
             oled_write_P(PSTR("Undef"), false);
+        }
     }
     oled_write_P(PSTR("\n\n"), false);
 
@@ -144,17 +145,19 @@ static void print_status_narrow(void) {
             oled_write_ln_P(PSTR("Undef"), false);
     }
     oled_write_P(PSTR("\n\n"), false);
-    led_t led_usb_state = host_keyboard_led_state();
-    oled_write_ln_P(PSTR("CPSLK"), led_usb_state.caps_lock);
+    oled_write_ln_P(PSTR("CPSLK"), host_keyboard_led_state().caps_lock);
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     if (is_keyboard_master()) {
         return OLED_ROTATION_270;
-    } else {
-        return OLED_ROTATION_180;
     }
+#    ifdef USE_WPM_OLED
+    // forcibly rotate screen for wpm
+    return OLED_ROTATION_180;
+#    else
     return rotation;
+#    endif /* ifdef USE_WPM_OLED */
 }
 
 bool oled_task_user(void) {

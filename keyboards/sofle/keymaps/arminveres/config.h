@@ -27,8 +27,9 @@ for more options.
 #ifdef ENCODER_RESOLUTION
 // Setting the resolution to 4 results in 10% increase e.g., in volume change. 2 is 20% so 8 should
 // result in 5%
+// WARN: using 8 does not correctly increment the volume by 5%
 #    undef ENCODER_RESOLUTION
-#    define ENCODER_RESOLUTION 8
+#    define ENCODER_RESOLUTION 4
 #endif
 
 #ifdef OLED_ENABLE
@@ -37,6 +38,9 @@ for more options.
 #    define SPLIT_WPM_ENABLE   // Enable WPM across split keyboards (+268).
 #    define SPLIT_OLED_ENABLE  // Synx on/off OLED state between halves (+100).
 #endif                         // OLED_ENABLE
+
+/// Left side is the master as plugged in to usb
+#define MASTER_LEFT
 
 /// Custom Definitions
 // #define USE_HOMEROW_MODS

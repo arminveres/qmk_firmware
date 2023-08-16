@@ -1,7 +1,7 @@
+SPLIT_KEYBOARD = yes
 OLED_ENABLE = yes
 OLED_DRIVER = SSD1306
 ENCODER_ENABLE = yes
-CONSOLE_ENABLE = no
 EXTRAKEY_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 WPM_ENABLE = yes
@@ -23,3 +23,7 @@ LIB_SRC += \
 	lib/arminveres/achordion.c \
 	lib/arminveres/sentence_case.c
 
+# Disable some stuff
+AUDIO_ENABLE = no
+RGB_ENABLE = no
+CONSOLE_ENABLE = no
