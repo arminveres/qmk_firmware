@@ -3,20 +3,10 @@
 #include "quantum.h"
 #include "achordion.h"
 #include "sentence_case.h"
+#include "enums.h"
 #include "home_row.h"
 
 #define CAPS_WORD CW_TOGG
-
-enum eCustomKeycodes {
-    RGB_SLD = SAFE_RANGE, //
-    HSV_0_255_255,        //
-    HSV_86_255_128,       //
-    HSV_172_255_255,      //
-    KC_QWERTY,            //
-    KC_GAMING
-};
-
-enum eLayers { _QWERTY, _SPECIAL, _GAMING, _ADJUST };
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
