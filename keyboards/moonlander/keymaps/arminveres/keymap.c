@@ -3,46 +3,9 @@
 #include "quantum.h"
 #include "achordion.h"
 #include "sentence_case.h"
+#include "home_row.h"
 
 #define CAPS_WORD CW_TOGG
-
-#ifdef USE_HOMEROW_MODS
-// Left-hand home row mods
-#    define HOME_A (LGUI_T(KC_A))
-#    define HOME_S (LALT_T(KC_S))
-#    define HOME_D (LCTL_T(KC_D))
-#    define HOME_F (LSFT_T(KC_F))
-// Right-hand home row mods
-#    define HOME_J (RSFT_T(KC_J))
-#    define HOME_K (RCTL_T(KC_K))
-#    define HOME_L (LALT_T(KC_L))
-#    define HOME_SCLN (RGUI_T(KC_SCLN))
-
-#elif defined(PARTIAL_HOME_MODS)
-// Left-hand home row mods
-#    define HOME_A (LGUI_T(KC_A))
-#    define HOME_S (LALT_T(KC_S))
-#    define HOME_D (KC_D)
-#    define HOME_F (KC_F)
-// Right-hand home row mods
-#    define HOME_J (KC_J)
-#    define HOME_K (KC_K)
-#    define HOME_L (LALT_T(KC_L))
-#    define HOME_SCLN (RGUI_T(KC_SCLN))
-
-#else
-// Left-hand keys
-#    define HOME_A (KC_A)
-#    define HOME_S (KC_S)
-#    define HOME_D (KC_D)
-#    define HOME_F (KC_F)
-// Right-hand keys
-#    define HOME_J (KC_J)
-#    define HOME_K (KC_K)
-#    define HOME_L (KC_L)
-// we are still using the KC_SCLN as a control replacement
-#    define HOME_SCLN (RCTL_T(KC_SCLN))
-#endif /* ifdef USE_HOMEROW_MODS */
 
 enum eCustomKeycodes {
     RGB_SLD = SAFE_RANGE, //
