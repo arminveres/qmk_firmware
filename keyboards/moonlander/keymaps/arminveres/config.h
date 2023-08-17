@@ -4,7 +4,6 @@
 */
 #pragma once
 
-
 #ifndef NO_DEBUG
 #    define NO_DEBUG
 #endif // !NO_DEBUG
@@ -18,10 +17,8 @@
 #endif
 #define TAPPING_TERM 160
 
-#define ORYX_CONFIGURATOR
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define CAPS_LOCK_STATUS
-#define LAYER_STATE_8BIT
 #define RGB_MATRIX_STARTUP_SPD 60
 
 /// In combination with fast typing and home row mods, PERMISSIVE_HOLD enables to register keys instead of layer changes
@@ -31,3 +28,10 @@
 /// Custom Definitions
 // #define USE_HOMEROW_MODS
 #define PARTIAL_HOME_MODS
+
+// #define LAYER_STATE_8BIT
+#define ORYX_CONFIGURATOR
+#undef MANUFACTURER
+#define MANUFACTURER "Armin Veres"
+#undef PRODUCT
+#define PRODUCT "Moonlander Mark I - Modified by <@arminveres>"
