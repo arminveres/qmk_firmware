@@ -12,7 +12,7 @@ enum eCustomKeycodes {
 
 enum eLayers {
     _QWERTY,  //
-    _SPECIAL, //
     _GAMING,  //
+    _SPECIAL, //
     _ADJUST   //
 };
