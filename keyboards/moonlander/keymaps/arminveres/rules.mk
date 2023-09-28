@@ -6,13 +6,13 @@ EXTRAKEY_ENABLE = yes
 
 SRC += \
 	rgb.c \
-	tap_dance.c
+	tap_dance.c \
+	lib/arminveres/achordion.c \
+	lib/arminveres/sentence_case.c \
+	lib/arminveres/user_caps.c
+
 
 CFLAGS += -Ilib/arminveres
-
-LIB_SRC += \
-	lib/arminveres/achordion.c \
-	lib/arminveres/sentence_case.c
 
 CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
