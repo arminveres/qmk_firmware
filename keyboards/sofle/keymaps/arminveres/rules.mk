@@ -13,14 +13,9 @@ BOOTLOADER = rp2040
 PROCESSOR = cortex-m0plus
 CONVERT_TO = rp2040_ce
 
-CFLAGS += -Ilib/arminveres
-
 SRC += \
 	oled.c \
-	encoder.c \
-	lib/arminveres/user_caps.c \
-	lib/arminveres/achordion.c \
-	lib/arminveres/sentence_case.c
+	encoder.c
 
 # Disable some stuff
 AUDIO_ENABLE = no
