@@ -1,7 +1,5 @@
-#include "oled_driver.h"
 #ifdef OLED_ENABLE
-
-#    include QMK_KEYBOARD_H
+#    include "oled_driver.h"
 #    include "enums.h"
 
 #    ifdef USE_WPM_OLED
@@ -22,19 +20,18 @@
 #        define DISPLAY_WIDTH 32
 
 static inline void render_wpm(void) {
-    char      wpm_text[8] = "WPM: ";
-    int       y           = DISPLAY_WIDTH - 1;
-    int       i           = 0;
-    uint8_t   currwpm     = 0;
-    uint8_t   oldwpm      = 0;
-    uint16_t  timer       = 0;
-    const int elapsed     = timer_elapsed(timer);
+    uint8_t   currwpm = 0;
+    uint8_t   oldwpm  = 0;
+    uint16_t  timer   = 0;
+    const int elapsed = timer_elapsed(timer);
 
     // get current WPM value
     oldwpm  = currwpm;
     currwpm = get_current_wpm();
 
     if (elapsed > WPM_GRAPH_REFRESH_INTERVAL) {
+        int i = 0;
+        int y;
         // main calculation to plot graph line
         y = DISPLAY_WIDTH - ((currwpm / WPM_GRAPH_SPEED_MAX) * DISPLAY_WIDTH);
 
@@ -66,6 +63,7 @@ static inline void render_wpm(void) {
         pos_offset = 2;
     }
     if (0 <= pos_offset) {
+        char wpm_text[8] = "WPM: ";
         if (currwpm != oldwpm) {
             itoa(currwpm, wpm_text + 4, 10);
         }
@@ -108,20 +106,25 @@ static void print_status_narrow(void) {
     oled_write_ln_P(PSTR(""), false);
     if (keymap_config.swap_lctl_lgui) {
         oled_write_ln_P(PSTR("MAC"), false);
-    } else {
-        oled_write_ln_P(PSTR("LINUX"), false);
     }
+    // We don't need to print if we are in a non-swapped branch
+    // else {
+    //     oled_write_ln_P(PSTR("LINUX"), false);
+    // }
 
     // default layer
     switch (get_highest_layer(default_layer_state)) {
         case _QWERTY: {
             oled_write_ln_P(PSTR("Qwrt"), false);
             break;
-        case _GAMING:
+        }
+        case _GAMING: {
             oled_write_ln_P(PSTR("Game"), false);
             break;
-        default:
+        }
+        default: {
             oled_write_P(PSTR("Undef"), false);
+            break;
         }
     }
     oled_write_P(PSTR("\n\n"), false);
@@ -129,18 +132,26 @@ static void print_status_narrow(void) {
     // Print current layer
     oled_write_ln_P(PSTR("LAYER"), false);
     switch (get_highest_layer(layer_state)) {
-        case _QWERTY:
+        case _QWERTY: {
             oled_write_P(PSTR("Base\n"), false);
             break;
-        case _GAMING:
+        }
+        case _GAMING: {
             oled_write_P(PSTR("Gaming"), false);
             break;
-        case _LOWER:
+        }
+        case _LOWER: {
             oled_write_P(PSTR("Lower"), false);
             break;
-        case _ADJUST:
+        }
+        case _UPPER: {
+            oled_write_P(PSTR("Upper"), false);
+            break;
+        }
+        case _ADJUST: {
             oled_write_P(PSTR("Adj\n"), false);
             break;
+        }
         default:
             oled_write_ln_P(PSTR("Undef"), false);
     }
