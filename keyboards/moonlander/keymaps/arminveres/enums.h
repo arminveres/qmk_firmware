@@ -1,5 +1,5 @@
 #pragma once
-#include QMK_KEYBOARD_H
+#include QMK_KEYBOARD_H // IWYU pragma: keep
 
 enum eCustomKeycodes {
     RGB_SLD = SAFE_RANGE, //

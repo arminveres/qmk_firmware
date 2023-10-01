@@ -1,4 +1,4 @@
-#include QMK_KEYBOARD_H
+#include QMK_KEYBOARD_H // IWYU pragma: keep
 
 #define DRIVER_LED_TOTAL (DRIVER_1_LED_TOTAL + DRIVER_2_LED_TOTAL)
 

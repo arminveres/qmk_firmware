@@ -1,10 +1,9 @@
-#include QMK_KEYBOARD_H
-#include "keycodes.h"
-#include "quantum.h"
+#include QMK_KEYBOARD_H // IWYU pragma: keep
+//
 #include "achordion.h"
-#include "sentence_case.h"
 #include "enums.h"
 #include "home_row.h"
+#include "sentence_case.h"
 
 #define CAPS_WORD CW_TOGG
 

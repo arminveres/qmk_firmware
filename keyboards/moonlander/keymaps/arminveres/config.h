@@ -12,10 +12,8 @@
 #    define NO_PRINT
 #endif // !NO_PRINT
 
-#ifdef TAPPING_TERM
-#    undef TAPPING_TERM
-#endif
-#define TAPPING_TERM 160
+#undef TAPPING_TERM
+#define TAPPING_TERM 200
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define CAPS_LOCK_STATUS

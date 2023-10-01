@@ -1,6 +1,6 @@
 #pragma once
-
 // NOTE: We are using the GACS Home Row mods!
+
 #ifdef USE_HOMEROW_MODS
 // Left-hand home row mods
 #    define HOME_A (LGUI_T(KC_A))
@@ -37,4 +37,3 @@
 #    define HOME_L (KC_L)
 #    define HOME_SCLN (KC_SCLN)
 #endif /* ifdef USE_HOMEROW_MODS */
-
