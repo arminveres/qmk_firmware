@@ -1,6 +1,5 @@
 #ifdef ENCODER_ENABLE
-#    include QMK_KEYBOARD_H
-
+#    include QMK_KEYBOARD_H // IWYU pragma: keep
 // Handle encoder_update_user
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
@@ -18,5 +17,4 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     }
     return true;
 }
-
 #endif

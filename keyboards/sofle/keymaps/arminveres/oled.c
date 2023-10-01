@@ -1,4 +1,5 @@
 #ifdef OLED_ENABLE
+#    include QMK_KEYBOARD_H // IWYU pragma: keep
 #    include "oled_driver.h"
 #    include "enums.h"
 
@@ -113,49 +114,15 @@ static void print_status_narrow(void) {
     // }
 
     // default layer
-    switch (get_highest_layer(default_layer_state)) {
-        case _QWERTY: {
-            oled_write_ln_P(PSTR("Qwrt"), false);
-            break;
-        }
-        case _GAMING: {
-            oled_write_ln_P(PSTR("Game"), false);
-            break;
-        }
-        default: {
-            oled_write_P(PSTR("Undef"), false);
-            break;
-        }
-    }
+    oled_write_P(PSTR(gSofleModeNames[get_highest_layer(default_layer_state)]), false);
     oled_write_P(PSTR("\n\n"), false);
 
     // Print current layer
     oled_write_ln_P(PSTR("LAYER"), false);
-    switch (get_highest_layer(layer_state)) {
-        case _QWERTY: {
-            oled_write_P(PSTR("Base\n"), false);
-            break;
-        }
-        case _GAMING: {
-            oled_write_P(PSTR("Gaming"), false);
-            break;
-        }
-        case _LOWER: {
-            oled_write_P(PSTR("Lower"), false);
-            break;
-        }
-        case _UPPER: {
-            oled_write_P(PSTR("Upper"), false);
-            break;
-        }
-        case _ADJUST: {
-            oled_write_P(PSTR("Adj\n"), false);
-            break;
-        }
-        default:
-            oled_write_ln_P(PSTR("Undef"), false);
-    }
+    oled_write_P(PSTR(gSofleLayerNames[get_highest_layer(layer_state)]), false);
     oled_write_P(PSTR("\n\n"), false);
+
+    // Print capslock status
     oled_write_ln_P(PSTR("CPSLK"), host_keyboard_led_state().caps_lock);
 }
 

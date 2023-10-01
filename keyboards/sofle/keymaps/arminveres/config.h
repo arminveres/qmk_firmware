@@ -1,7 +1,3 @@
-/* The way how "handedness" is decided (which half is which),
-see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
-for more options.
-*/
 #pragma once
 
 #ifndef NO_DEBUG
@@ -39,10 +35,14 @@ for more options.
 #    define SPLIT_OLED_ENABLE  // Synx on/off OLED state between halves (+100).
 #endif                         // OLED_ENABLE
 
+/* The way how "handedness" is decided (which half is which),
+see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
+for more options.
+*/
 /// Left side is the master as plugged in to usb
 #define MASTER_LEFT
 
 /// Custom Definitions
-// #define USE_HOMEROW_MODS
-#define PARTIAL_HOME_MODS
+#define USE_HOMEROW_MODS
+// #define PARTIAL_HOME_MODS
 #define USE_WPM_OLED

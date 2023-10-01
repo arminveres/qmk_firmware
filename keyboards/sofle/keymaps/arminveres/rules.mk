@@ -13,7 +13,8 @@ CONVERT_TO = rp2040_ce
 
 SRC += \
 	oled.c \
-	encoder.c
+	encoder.c \
+	enums.c
 
 # Disable some stuff
 RGB_ENABLE = no
