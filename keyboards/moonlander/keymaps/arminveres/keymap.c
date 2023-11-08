@@ -9,56 +9,56 @@
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-//    ┌───────────────┬────────┬────────┬────────┬──────────────┬─────────────┬──────┐   ┌──────┬─────────────┬──────────────┬───────────────────┬────────┬───────────┬───────────────┐
-//    │      esc      │   1    │   2    │   3    │      4       │      5      │      │   │      │      6      │      7       │         8         │   9    │     0     │     bspc      │
-//    ├───────────────┼────────┼────────┼────────┼──────────────┼─────────────┼──────┤   ├──────┼─────────────┼──────────────┼───────────────────┼────────┼───────────┼───────────────┤
-//    │      tab      │   q    │   w    │   e    │      r       │      t      │  =   │   │  -   │      y      │      u       │         i         │   o    │     p     │       \       │
-//    ├───────────────┼────────┼────────┼────────┼──────────────┼─────────────┼──────┤   ├──────┼─────────────┼──────────────┼───────────────────┼────────┼───────────┼───────────────┤
-//    │ OSM(MOD_LCTL) │ HOME_A │ HOME_S │ HOME_D │    HOME_F    │      g      │  [   │   │  ]   │      h      │    HOME_J    │      HOME_K       │ HOME_L │ HOME_SCLN │   RCTL_T(')   │
-//    ├───────────────┼────────┼────────┼────────┼──────────────┼─────────────┼──────┘   └──────┼─────────────┼──────────────┼───────────────────┼────────┼───────────┼───────────────┤
-//    │ OSM(MOD_LSFT) │   z    │   x    │   c    │      v       │      b      │                 │      n      │      m       │         ,         │   .    │     /     │ OSM(MOD_RSFT) │
-//    ├───────────────┼────────┼────────┼────────┼──────────────┼─────────────┼──────┐   ┌──────┼─────────────┼──────────────┼───────────────────┼────────┼───────────┼───────────────┤
-//    │   caps_LOCK   │        │  esc   │  lalt  │     lgui     │             │ ralt │   │ ralt │             │     rgui     │ MT(MOD_LALT, esc) │        │           │               │
-//    └───────────────┴────────┴────────┼────────┼──────────────┼─────────────┼──────┘   └──────┼─────────────┼──────────────┼───────────────────┼────────┴───────────┴───────────────┘
-//                                      │  spc   │ MO(_SPECIAL) │ MO(_ADJUST) │                 │ MO(_ADJUST) │ MO(_SPECIAL) │        ent        │                                     
-//                                      └────────┴──────────────┴─────────────┘                 └─────────────┴──────────────┴───────────────────┘                                     
+//    ┌───────────────┬────────┬───────────┬────────┬──────────────┬─────────────┬────┐   ┌────┬─────────────┬──────────────┬───────────────────┬───────────┬───────────┬───────────────┐
+//    │      esc      │   1    │     2     │   3    │      4       │      5      │ no │   │ no │      6      │      7       │         8         │     9     │     0     │     bspc      │
+//    ├───────────────┼────────┼───────────┼────────┼──────────────┼─────────────┼────┤   ├────┼─────────────┼──────────────┼───────────────────┼───────────┼───────────┼───────────────┤
+//    │      tab      │   q    │     w     │   e    │      r       │      t      │ no │   │ no │      y      │      u       │         i         │     o     │     p     │       \       │
+//    ├───────────────┼────────┼───────────┼────────┼──────────────┼─────────────┼────┤   ├────┼─────────────┼──────────────┼───────────────────┼───────────┼───────────┼───────────────┤
+//    │ OSM(MOD_LCTL) │ HOME_A │  HOME_S   │ HOME_D │    HOME_F    │      g      │ no │   │ no │      h      │    HOME_J    │      HOME_K       │  HOME_L   │ HOME_SCLN │   RCTL_T(')   │
+//    ├───────────────┼────────┼───────────┼────────┼──────────────┼─────────────┼────┘   └────┼─────────────┼──────────────┼───────────────────┼───────────┼───────────┼───────────────┤
+//    │ OSM(MOD_LSFT) │   z    │ RALT_T(x) │   c    │      v       │      b      │             │      n      │      m       │         ,         │ RALT_T(.) │     /     │ OSM(MOD_RSFT) │
+//    ├───────────────┼────────┼───────────┼────────┼──────────────┼─────────────┼────┐   ┌────┼─────────────┼──────────────┼───────────────────┼───────────┼───────────┼───────────────┤
+//    │      no       │   no   │    esc    │  lalt  │     lgui     │             │ no │   │ no │             │     rgui     │ MT(MOD_LALT, esc) │    no     │    no     │      no       │
+//    └───────────────┴────────┴───────────┼────────┼──────────────┼─────────────┼────┘   └────┼─────────────┼──────────────┼───────────────────┼───────────┴───────────┴───────────────┘
+//                                         │  spc   │ MO(_SPECIAL) │ MO(_ADJUST) │             │ MO(_ADJUST) │ MO(_SPECIAL) │        ent        │                                        
+//                                         └────────┴──────────────┴─────────────┘             └─────────────┴──────────────┴───────────────────┘                                        
 [_QWERTY] = LAYOUT_moonlander(
-  KC_ESC        , KC_1    , KC_2   , KC_3     , KC_4         , KC_5        , _______  ,     _______  , KC_6        , KC_7         , KC_8                    , KC_9    , KC_0      , KC_BSPC         ,
-  KC_TAB        , KC_Q    , KC_W   , KC_E     , KC_R         , KC_T        , KC_EQUAL ,     KC_MINUS , KC_Y        , KC_U         , KC_I                    , KC_O    , KC_P      , KC_BSLS         ,
-  OSM(MOD_LCTL) , HOME_A  , HOME_S , HOME_D   , HOME_F       , KC_G        , KC_LBRC  ,     KC_RBRC  , KC_H        , HOME_J       , HOME_K                  , HOME_L  , HOME_SCLN , RCTL_T(KC_QUOTE),
-  OSM(MOD_LSFT) , KC_Z    , KC_X   , KC_C     , KC_V         , KC_B        ,                           KC_N        , KC_M         , KC_COMMA                , KC_DOT  , KC_SLASH  , OSM(MOD_RSFT)   ,
-  KC_CAPS_LOCK  , _______ , KC_ESC , KC_LALT  , KC_LGUI      ,               KC_RALT  ,     KC_RALT  ,               KC_RGUI      , MT(MOD_LALT, KC_ESCAPE) , _______ , _______   , _______         ,
-                                     KC_SPACE , MO(_SPECIAL) , MO(_ADJUST) ,                           MO(_ADJUST) , MO(_SPECIAL) , KC_ENTER                                                        
+  KC_ESC        , KC_1    , KC_2         , KC_3     , KC_4         , KC_5        , XXXXXXX ,     XXXXXXX , KC_6        , KC_7         , KC_8                    , KC_9           , KC_0      , KC_BSPC         ,
+  KC_TAB        , KC_Q    , KC_W         , KC_E     , KC_R         , KC_T        , XXXXXXX ,     XXXXXXX , KC_Y        , KC_U         , KC_I                    , KC_O           , KC_P      , KC_BSLS         ,
+  OSM(MOD_LCTL) , HOME_A  , HOME_S       , HOME_D   , HOME_F       , KC_G        , XXXXXXX ,     XXXXXXX , KC_H        , HOME_J       , HOME_K                  , HOME_L         , HOME_SCLN , RCTL_T(KC_QUOTE),
+  OSM(MOD_LSFT) , KC_Z    , RALT_T(KC_X) , KC_C     , KC_V         , KC_B        ,                         KC_N        , KC_M         , KC_COMMA                , RALT_T(KC_DOT) , KC_SLASH  , OSM(MOD_RSFT)   ,
+  XXXXXXX       , XXXXXXX , KC_ESC       , KC_LALT  , KC_LGUI      ,               XXXXXXX ,     XXXXXXX ,               KC_RGUI      , MT(MOD_LALT, KC_ESCAPE) , XXXXXXX        , XXXXXXX   , XXXXXXX         ,
+                                           KC_SPACE , MO(_SPECIAL) , MO(_ADJUST) ,                         MO(_ADJUST) , MO(_SPECIAL) , KC_ENTER                                                               
 ),
 
-//    ┌───────────────┬─────┬─────┬──────┬──────────────┬─────────────┬──────┐   ┌──────┬─────────────┬──────────────┬───────────────────┬─────┬─────┬───────────────┐
-//    │      esc      │  1  │  2  │  3   │      4       │      5      │      │   │      │      6      │      7       │         8         │  9  │  0  │     bspc      │
-//    ├───────────────┼─────┼─────┼──────┼──────────────┼─────────────┼──────┤   ├──────┼─────────────┼──────────────┼───────────────────┼─────┼─────┼───────────────┤
-//    │      tab      │  q  │  w  │  e   │      r       │      t      │  =   │   │  -   │      y      │      u       │         i         │  o  │  p  │       \       │
-//    ├───────────────┼─────┼─────┼──────┼──────────────┼─────────────┼──────┤   ├──────┼─────────────┼──────────────┼───────────────────┼─────┼─────┼───────────────┤
-//    │ OSM(MOD_LCTL) │  a  │  s  │  d   │      f       │      g      │  [   │   │  ]   │      h      │      j       │         k         │  l  │  ;  │   RCTL_T(')   │
-//    ├───────────────┼─────┼─────┼──────┼──────────────┼─────────────┼──────┘   └──────┼─────────────┼──────────────┼───────────────────┼─────┼─────┼───────────────┤
-//    │ OSM(MOD_LSFT) │  z  │  x  │  c   │      v       │      b      │                 │      n      │      m       │         ,         │  .  │  /  │ OSM(MOD_RSFT) │
-//    ├───────────────┼─────┼─────┼──────┼──────────────┼─────────────┼──────┐   ┌──────┼─────────────┼──────────────┼───────────────────┼─────┼─────┼───────────────┤
-//    │   caps_LOCK   │     │ esc │ lalt │     lgui     │             │ ralt │   │ ralt │             │     rgui     │ MT(MOD_LALT, esc) │     │     │               │
-//    └───────────────┴─────┴─────┼──────┼──────────────┼─────────────┼──────┘   └──────┼─────────────┼──────────────┼───────────────────┼─────┴─────┴───────────────┘
-//                                │ spc  │ MO(_SPECIAL) │ MO(_ADJUST) │                 │ MO(_ADJUST) │ MO(_SPECIAL) │        ent        │                            
-//                                └──────┴──────────────┴─────────────┘                 └─────────────┴──────────────┴───────────────────┘                            
+//    ┌───────────────┬────┬─────┬──────┬──────────────┬─────────────┬──────┐   ┌──────┬─────────────┬──────────────┬───────────────────┬────┬────┬───────────────┐
+//    │      esc      │ 1  │  2  │  3   │      4       │      5      │  no  │   │  no  │      6      │      7       │         8         │ 9  │ 0  │     bspc      │
+//    ├───────────────┼────┼─────┼──────┼──────────────┼─────────────┼──────┤   ├──────┼─────────────┼──────────────┼───────────────────┼────┼────┼───────────────┤
+//    │      tab      │ q  │  w  │  e   │      r       │      t      │  =   │   │  -   │      y      │      u       │         i         │ o  │ p  │       \       │
+//    ├───────────────┼────┼─────┼──────┼──────────────┼─────────────┼──────┤   ├──────┼─────────────┼──────────────┼───────────────────┼────┼────┼───────────────┤
+//    │ OSM(MOD_LCTL) │ a  │  s  │  d   │      f       │      g      │  [   │   │  ]   │      h      │      j       │         k         │ l  │ ;  │   RCTL_T(')   │
+//    ├───────────────┼────┼─────┼──────┼──────────────┼─────────────┼──────┘   └──────┼─────────────┼──────────────┼───────────────────┼────┼────┼───────────────┤
+//    │ OSM(MOD_LSFT) │ z  │  x  │  c   │      v       │      b      │                 │      n      │      m       │         ,         │ .  │ /  │ OSM(MOD_RSFT) │
+//    ├───────────────┼────┼─────┼──────┼──────────────┼─────────────┼──────┐   ┌──────┼─────────────┼──────────────┼───────────────────┼────┼────┼───────────────┤
+//    │   caps_LOCK   │ no │ esc │ lalt │     lgui     │             │ ralt │   │ ralt │             │     rgui     │ MT(MOD_LALT, esc) │ no │ no │      no       │
+//    └───────────────┴────┴─────┼──────┼──────────────┼─────────────┼──────┘   └──────┼─────────────┼──────────────┼───────────────────┼────┴────┴───────────────┘
+//                               │ spc  │ MO(_SPECIAL) │ MO(_ADJUST) │                 │ MO(_ADJUST) │ MO(_SPECIAL) │        ent        │                          
+//                               └──────┴──────────────┴─────────────┘                 └─────────────┴──────────────┴───────────────────┘                          
 [_GAMING] = LAYOUT_moonlander(
-  KC_ESC        , KC_1    , KC_2   , KC_3     , KC_4         , KC_5        , _______  ,     _______  , KC_6        , KC_7         , KC_8                    , KC_9    , KC_0     , KC_BSPC         ,
+  KC_ESC        , KC_1    , KC_2   , KC_3     , KC_4         , KC_5        , XXXXXXX  ,     XXXXXXX  , KC_6        , KC_7         , KC_8                    , KC_9    , KC_0     , KC_BSPC         ,
   KC_TAB        , KC_Q    , KC_W   , KC_E     , KC_R         , KC_T        , KC_EQUAL ,     KC_MINUS , KC_Y        , KC_U         , KC_I                    , KC_O    , KC_P     , KC_BSLS         ,
   OSM(MOD_LCTL) , KC_A    , KC_S   , KC_D     , KC_F         , KC_G        , KC_LBRC  ,     KC_RBRC  , KC_H        , KC_J         , KC_K                    , KC_L    , KC_SCLN  , RCTL_T(KC_QUOTE),
   OSM(MOD_LSFT) , KC_Z    , KC_X   , KC_C     , KC_V         , KC_B        ,                           KC_N        , KC_M         , KC_COMMA                , KC_DOT  , KC_SLASH , OSM(MOD_RSFT)   ,
-  KC_CAPS_LOCK  , _______ , KC_ESC , KC_LALT  , KC_LGUI      ,               KC_RALT  ,     KC_RALT  ,               KC_RGUI      , MT(MOD_LALT, KC_ESCAPE) , _______ , _______  , _______         ,
+  KC_CAPS_LOCK  , XXXXXXX , KC_ESC , KC_LALT  , KC_LGUI      ,               KC_RALT  ,     KC_RALT  ,               KC_RGUI      , MT(MOD_LALT, KC_ESCAPE) , XXXXXXX , XXXXXXX  , XXXXXXX         ,
                                      KC_SPACE , MO(_SPECIAL) , MO(_ADJUST) ,                           MO(_ADJUST) , MO(_SPECIAL) , KC_ENTER                                                       
 ),
 
 //    ┌───────────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬──────┬──────┬──────┬──────┬──────┬─────┐
 //    │           │ f1  │ f2  │ f3  │ f4  │ f5  │     │   │     │  f6  │  f7  │  f8  │  f9  │ f10  │ del │
 //    ├───────────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼──────┼──────┼──────┼──────┼──────┼─────┤
-//    │           │  ~  │     │     │     │     │     │   │     │ pgup │ home │      │      │      │ f11 │
+//    │           │  ~  │  {  │  }  │  +  │  =  │     │   │     │ pgup │ home │      │      │      │ f11 │
 //    ├───────────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼──────┼──────┼──────┼──────┼──────┼─────┤
-//    │ CAPS_WORD │  `  │     │     │     │     │     │   │     │ left │ down │  up  │ rght │      │ f12 │
+//    │ CAPS_WORD │  `  │  [  │  ]  │  _  │  -  │     │   │     │ left │ down │  up  │ rght │      │ f12 │
 //    ├───────────┼─────┼─────┼─────┼─────┼─────┼─────┘   └─────┼──────┼──────┼──────┼──────┼──────┼─────┤
 //    │           │     │     │     │     │     │               │ pgdn │ end  │ mprv │ mnxt │ mply │     │
 //    ├───────────┼─────┼─────┼─────┼─────┼─────┼─────┐   ┌─────┼──────┼──────┼──────┼──────┼──────┼─────┤
@@ -68,8 +68,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //                            └─────┴─────┴─────┘               └──────┴──────┴──────┘                    
 [_SPECIAL] = LAYOUT_moonlander(
   _______   , KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_F5   , _______ ,     _______ , KC_F6   , KC_F7             , KC_F8               , KC_F9               , KC_F10              , KC_DELETE,
-  _______   , KC_TILD , _______ , _______ , _______ , _______ , _______ ,     _______ , KC_PGUP , KC_HOME           , _______             , _______             , _______             , KC_F11   ,
-  CAPS_WORD , KC_GRV  , _______ , _______ , _______ , _______ , _______ ,     _______ , KC_LEFT , KC_DOWN           , KC_UP               , KC_RIGHT            , _______             , KC_F12   ,
+  _______   , KC_TILD , KC_LCBR , KC_RCBR , KC_PLUS , KC_EQL  , _______ ,     _______ , KC_PGUP , KC_HOME           , _______             , _______             , _______             , KC_F11   ,
+  CAPS_WORD , KC_GRV  , KC_LBRC , KC_RBRC , KC_UNDS , KC_MINS , _______ ,     _______ , KC_LEFT , KC_DOWN           , KC_UP               , KC_RIGHT            , _______             , KC_F12   ,
   _______   , _______ , _______ , _______ , _______ , _______ ,                         KC_PGDN , KC_END            , KC_MEDIA_PREV_TRACK , KC_MEDIA_NEXT_TRACK , KC_MEDIA_PLAY_PAUSE , _______  ,
   _______   , _______ , _______ , _______ , _______ ,           _______ ,     _______ ,           KC_AUDIO_VOL_DOWN , KC_AUDIO_VOL_UP     , KC_AUDIO_MUTE       , _______             , _______  ,
                                   _______ , _______ , _______ ,                         _______ , _______           , _______                                                                    
@@ -163,7 +163,46 @@ void matrix_scan_user(void) {
     achordion_task();
 }
 
-// TODO: (aver) implement custom LED for layers, see `moonlander.c`
-// layer_state_t layer_state_set_user(layer_state_t state) {
-//     return state;
-// }
+bool achordion_eager_mod(uint8_t mod) {
+    return false;
+    // NOTE: (aver) we are only eager with SHIFT
+    // return (mod & (MOD_LALT | MOD_LGUI | MOD_LCTL | MOD_RCTL | MOD_RGUI)) == 0;
+    // return (mod & (MOD_LSFT | MOD_RSFT)) >= 1;
+}
+
+/// Custom LED Indicator implementation for layers, see `moonlander.c`
+layer_state_t layer_state_set_user(layer_state_t state) {
+    bool LED_1 = false;
+    bool LED_2 = false;
+    bool LED_3 = false;
+    bool LED_4 = false;
+    bool LED_5 = false;
+#if !defined(CAPS_LOCK_STATUS)
+    bool LED_6 = false;
+#endif
+    uint8_t layer = get_highest_layer(state);
+    switch (layer) {
+        case 0 ... 1:
+            break;
+        // first and second layers are persistent layers!
+        case 2:
+            LED_1 = true;
+            LED_4 = true;
+            break;
+        case 3:
+            LED_2 = true;
+            LED_5 = true;
+            break;
+        default:
+            break;
+    }
+    ML_LED_1(LED_1);
+    ML_LED_2(LED_2);
+    ML_LED_3(LED_3);
+    ML_LED_4(LED_4);
+    ML_LED_5(LED_5);
+#if !defined(CAPS_LOCK_STATUS)
+    ML_LED_6(LED_6);
+#endif
+    return state;
+}

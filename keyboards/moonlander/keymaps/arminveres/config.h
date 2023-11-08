@@ -24,12 +24,10 @@
 #define PERMISSIVE_HOLD
 
 /// Custom Definitions
-// #define USE_HOMEROW_MODS
-#define PARTIAL_HOME_MODS
+#define USE_HOMEROW_MODS
+// #define PARTIAL_HOME_MODS
 
-// #define LAYER_STATE_8BIT
+/// only define this if we are using up to 8 layers, if more use 16 bit or disable altogether
+#define LAYER_STATE_8BIT
 #define ORYX_CONFIGURATOR
-#undef MANUFACTURER
-#define MANUFACTURER "Armin Veres"
-#undef PRODUCT
-#define PRODUCT "Moonlander Mark I - Modified by <@arminveres>"
+#define MOONLANDER_USER_LEDS
