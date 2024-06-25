@@ -34,8 +34,8 @@ FORMAT = ihex
 OPT ?= 2
 
 # Compiler flag to set the C and C++ language standard level
-CSTANDARD = -std=gnu17
-CXXSTANDARD = -std=gnu++20
+CSTANDARD = -std=gnu2x
+CXXSTANDARD = -std=gnu++23
 
 # Speed up recompilations by opt-in usage of ccache
 USE_CCACHE ?= no
