@@ -1,5 +1,5 @@
 #include QMK_KEYBOARD_H // IWYU pragma: keep
-//
+
 #include "achordion.h"
 #include "enums.h"
 #include "home_row.h"

@@ -3,5 +3,6 @@
 TAP_DANCE_ENABLE = yes
 
 SRC += \
-	rgb.c \
 	tap_dance.c
+	# WARN(aver): rgb does not have the stuff it need to be compiled anymore
+	# rgb.c \
