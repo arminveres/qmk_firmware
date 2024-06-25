@@ -1,23 +1,5 @@
 #pragma once
 
-#ifndef NO_DEBUG
-#    define NO_DEBUG
-#endif // !NO_DEBUG
-
-#if !defined(NO_PRINT) && !defined(CONSOLE_ENABLE)
-#    define NO_PRINT
-#endif // !NO_PRINT
-
-/// To do individual keys: https://docs.qmk.fm/#/tap_hold?id=tapping-term
-#ifdef TAPPING_TERM
-#    undef TAPPING_TERM
-#endif
-/// Change Tapping Term from the default 200ms!
-#define TAPPING_TERM 200
-
-/// In combination with fast typing and home row mods, PERMISSIVE_HOLD enables to register keys instead of layer changes
-/// For more information see: https://docs.qmk.fm/#/tap_hold?id=tap-or-hold-decision-modes
-#define PERMISSIVE_HOLD
 
 /// Set encoder settings
 #ifdef ENCODER_RESOLUTION
@@ -42,7 +24,5 @@ for more options.
 /// Left side is the master as plugged in to usb
 #define MASTER_LEFT
 
-/// Custom Definitions
-#define USE_HOMEROW_MODS
-// #define PARTIAL_HOME_MODS
+/// My Definitions
 #define USE_WPM_OLED
