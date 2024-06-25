@@ -6,12 +6,20 @@
   outputs = { nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            # use newer arm-none-eabi
+            (self: super: { gcc-arm-embedded = super.gcc-arm-embedded-13; })
+          ];
+        };
+
       in
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs;[
             zsh
+            qmk
             cppcheck
           ];
         };
